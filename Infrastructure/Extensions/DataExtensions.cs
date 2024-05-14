@@ -19,6 +19,10 @@ public static class DataExtensions
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<IPermissionRepository, PermissionRepository>();
+        services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
 
         return services;
     }
