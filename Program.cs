@@ -13,7 +13,10 @@ if (connectionString != null)
 {
     builder.Services.AddEntityFramework(connectionString);
 }
+
 builder.Services.AddRepositories();
+builder.Services.AddServices();
+builder.Services.AddMappers();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

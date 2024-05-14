@@ -1,4 +1,6 @@
-﻿using CSharpAuth.Infrastructure.Repositories;
+﻿using CSharpAuth.Infrastructure.Mappers;
+using CSharpAuth.Infrastructure.Mappers.Interfaces;
+using CSharpAuth.Infrastructure.Repositories;
 using CSharpAuth.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +25,15 @@ public static class DataExtensions
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IPermissionRepository, PermissionRepository>();
         services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddMappers(this IServiceCollection services)
+    {
+        services.AddScoped<IUserMapper, UserMapper>();
+        services.AddScoped<IRoleMapper, RoleMapper>();
+        services.AddScoped<IPermissionMapper, PermissionMapper>();
 
         return services;
     }
